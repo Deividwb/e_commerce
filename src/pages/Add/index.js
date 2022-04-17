@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-
+import { addCar } from "../../Store/cars";
+import { useDispatch } from "react-redux";
 
 const Add = () => {
-  const [form, setForm] = useState();
+  const [form, setForm] = useState({ name: "", url: "" });
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -10,8 +12,8 @@ const Add = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    // return cars;
-    console.log(form);
+
+    dispatch(addCar(form));
   };
 
   return (
@@ -21,7 +23,7 @@ const Add = () => {
         <input
           type="text"
           name="name"
-          onClick={handleChange}
+          onChange={handleChange}
           className="form-control"
           placeholder="Nome..."
           value={form.name}
@@ -32,7 +34,7 @@ const Add = () => {
         <input
           type="text"
           name="url"
-          onChange={(e) => handleChange()}
+          onChange={handleChange}
           className="form-control"
           placeholder="URL: https:/"
           value={form.url}

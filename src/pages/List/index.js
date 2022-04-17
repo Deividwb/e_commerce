@@ -3,7 +3,7 @@ import Car from "../../components/Car/car";
 import { useSelector } from "react-redux";
 
 const List = () => {
-  const cars = useSelector(state => state)
+  const cars = useSelector((state) => state.cars);
 
   return (
     <>
