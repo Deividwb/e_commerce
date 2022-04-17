@@ -1,0 +1,2 @@
+yarn add redux
+yarn add react redux -> responsavel por fazer o redux abraçar a aplicação
